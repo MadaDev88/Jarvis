@@ -1,6 +1,6 @@
 .jarvis-app {
   min-height: 100vh;
-  position: relative;
+  display: flex;
   background:
     radial-gradient(ellipse at 20% 50%, rgba(0, 212, 255, 0.03) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 20%, rgba(0, 255, 136, 0.02) 0%, transparent 50%),
@@ -8,57 +8,21 @@
     var(--bg-dark);
 }
 
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: 320px 1fr 320px;
-  gap: 20px;
-  padding: 20px;
-  max-width: 1800px;
-  margin: 0 auto;
-  min-height: calc(100vh - 80px);
-}
-
-.left-column,
-.right-column {
+.main-content {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
-.center-column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+.page-content {
+  flex: 1;
+  overflow-y: auto;
 }
 
-.input-area {
-  display: flex;
-  gap: 12px;
-  width: 100%;
-  max-width: 700px;
-  align-items: center;
-}
-
-@media (max-width: 1200px) {
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-  }
-  .left-column,
-  .right-column {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  .left-column,
-  .right-column {
-    grid-template-columns: 1fr;
-  }
-  .dashboard-grid {
-    padding: 12px;
-    gap: 12px;
+@media (max-width: 1024px) {
+  .main-content {
+    margin-left: 0;
   }
 }
