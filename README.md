@@ -5,7 +5,7 @@ Explore the world's most significant UFO and UAP incidents on an interactive 3D 
 ## Features
 
 - Interactive world map powered by MapLibre GL JS
-- 20 historically significant UFO/UAP incidents with detailed metadata
+- 31 historically significant UFO/UAP incidents with detailed metadata and source links
 - Marker clustering for dense areas
 - Search by name, location, country, or year
 - Filter by date range, evidence type, country, credibility, and status
@@ -74,9 +74,27 @@ Locations are based on publicly reported information. Some coordinates identify 
 
 No API keys are required. See `.env.example` for optional configuration.
 
+## Testing
+
+```bash
+npm test
+```
+
+Unit tests (Vitest) cover filtering, search, CSV/GeoJSON export, marker styling, and data integrity (unique IDs, valid coordinates, https-only sources).
+
+## Deployment
+
+The app is configured for static export (`output: "export"` in `next.config.ts`). Pushing to `main` triggers the GitHub Pages workflow (`.github/workflows/deploy.yml`), which runs the tests, builds with `NEXT_PUBLIC_BASE_PATH=/Jarvis`, and publishes the `out/` directory to GitHub Pages at `https://<owner>.github.io/Jarvis/`.
+
+To deploy elsewhere (e.g. Vercel or any static host), build without the base path:
+
+```bash
+npm run build   # output in out/
+```
+
 ## Scripts
 
 - `npm run dev` - Start development server
-- `npm run build` - Production build
-- `npm run start` - Start production server
+- `npm run build` - Production build (static export to `out/`)
+- `npm test` - Run unit tests
 - `npm run lint` - Run ESLint
