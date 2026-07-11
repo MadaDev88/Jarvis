@@ -1,5 +1,7 @@
 # UFO Atlas
 
+> This repository also contains a standalone [Solana trading bot](trading-bot/README.md) in `trading-bot/`.
+
 Explore the world's most significant UFO and UAP incidents on an interactive 3D map.
 
 ## Features
